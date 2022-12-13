@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option go_package = "/nlp";
+
+message Request{
+    string name = 1;
+}
+
+message Durations{
+    float first = 1;
+    float second = 2;
+}
+
+message Response{
+    int32 result = 1;
+    float score = 2;
+    Durations durations = 3;
+}
+
+service ActionService {
+    rpc Classify (Request) returns (Response);
+}
