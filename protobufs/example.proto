@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option go_package = "/nlp";
+option go_package = "/pkg";
 
 message Request{
     string name = 1;
@@ -18,5 +18,5 @@ message Response{
 }
 
 service ActionService {
-    rpc Classify (Request) returns (Response);
+    rpc Action (Request) returns (Response);
 }
