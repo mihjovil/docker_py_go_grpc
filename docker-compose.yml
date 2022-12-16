@@ -1,0 +1,24 @@
+version: "3.8"
+services:
+  server:
+    build:
+      context: .
+      dockerfile: server/Dockerfile
+    environment:
+      HOST: grpc_py
+    image: py_server
+    networks:
+      - microservices
+    ports:
+      - 30300:30300
+
+  client:
+    command: tail -f /dev/null
+    build:
+      context: .
+      dockerfile: client/Dockerfile
+    image: go_client
+    networks:
+      - microservices
+networks:
+  microservices:
